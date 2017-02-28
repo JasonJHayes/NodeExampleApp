@@ -1,0 +1,38 @@
+﻿<section class="main">
+    <h1>Secure Home</h1>
+    <h2>Welcome {{ user.fullname || user.userId }}</h2>
+    <div class="signins">
+        <h3>Previous Signins</h3>
+        <label>
+            IP Address
+            <input type="search" ng-model="filter.ipAddress" />
+        </label>
+        <label>
+            Success
+            <select ng-model="filter.success">
+                <option value="" selected></option>
+                <option value="true">successful logins</option>
+                <option value="false">unsuccessful logins</option>
+            </select>
+        </label>
+        <label>
+            Signin
+            <input type="date" ng-model="createdAtFrom" />
+            <input type="date" ng-model="createdAtTo" />
+        </label>
+        <table>
+            <tr>
+                <th ng-click="orderBy('ipAddress')">IP Address</th>
+                <th ng-click="orderBy('success')">Success?</th>
+                <th ng-click="orderBy('createdAt')">Signin</th>
+                <th ng-click="orderBy(['signoutSource', 'updatedAt'])">Signout</th>
+            </tr>
+            <tr ng-repeat="signin in signins | filter: filter | createdAtFilter: createdAtFrom: createdAtTo | orderBy: sort: reverse">
+                <td>{{ signin.ipAddress }}</td>
+                <td>{{ signin.success | successFilter }}</td>
+                <td>{{ signin.createdAt | date: "yyyy-MM-dd hh:mm a" }}</td>
+                <td>{{ signin.signoutSource + " " + signin.updatedAt | signoutFilter | date: "yyyy-MM-dd hh:mm a" }}</td>
+            </tr>
+        </table>
+    </div>
+</section>

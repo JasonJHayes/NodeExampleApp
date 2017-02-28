@@ -1,0 +1,31 @@
+﻿<form name="signupForm" ng-submit="$ctrl.signup()" class="signup-form">
+    <label>
+        User ID
+        <input type="text" name="userId" ng-model="$ctrl.userId" required ng-minlength="4" user-check placeholder="User ID" />
+        <span ng-show="signupForm.userId.$invalid" class="error">
+            <span ng-show="signupForm.userId.$error.required">required</span>
+            <span ng-show="signupForm.userId.$error.minlength">minimum 4 characters</span>
+            <span ng-show="signupForm.userId.$error.userCheck && !signupForm.userId.$error.required && !signupForm.userId.$error.minlength">User ID taken</span>
+        </span>
+        <span ng-show="signupForm.userId.$valid" class="ok">OK</span>
+    </label>
+    <label>
+        Password
+        <input type="password" name="password" ng-model="$ctrl.password" required ng-minlength="4" placeholder="Password" />
+        <span ng-show="signupForm.password.$invalid" class="error">
+            <span ng-show="signupForm.password.$error.required">required</span>
+            <span ng-show="signupForm.password.$error.minlength">minimum 4 characters</span>
+        </span>
+        <span ng-show="signupForm.password.$valid" class="ok">OK</span>
+    </label>
+    <label>
+        Repeat
+        <input type="password" name="passwordRepeat" ng-model="$ctrl.passwordRepeat" required repeat-check placeholder="Repeat password" />
+        <span ng-show="signupForm.passwordRepeat.$invalid" class="error">
+            <span ng-show="signupForm.passwordRepeat.$error.required">required</span>
+            <span ng-show="signupForm.passwordRepeat.$error.repeatCheck && !signupForm.passwordRepeat.$error.required">must match Password</span>
+        </span>
+        <span ng-show="signupForm.passwordRepeat.$valid" class="ok">OK</span>
+    </label>
+    <button type="submit" ng-disabled="signupForm.userId.$invalid || signupForm.password.$invalid || signupForm.passwordRepeat.$invalid">SignUp</button>
+</form>

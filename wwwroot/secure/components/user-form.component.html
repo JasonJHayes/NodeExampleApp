@@ -1,0 +1,11 @@
+﻿<form name="userForm" ng-submit="$ctrl.save()" confirm-on-exit class="user-form">
+    <label>User ID <input type="text" name="userId" ng-model="$ctrl.user.userId" disabled /></label>
+    <label>Full Name <input type="text" name="fullname" ng-model="$ctrl.user.fullname" placeholder="First last name" /></label>
+    <label>
+        Picture
+        <button type="button" ng-click="$ctrl.removePicture(userForm)" ng-show="$ctrl.showPicture">Remove</button>
+        <input type="file" id="fileUpload" name="fileUpload" accept="image/*" />
+    </label>
+    <img ng-src="{{ $ctrl.pictureSrc }}" width="200" alt="user picture" ng-show="$ctrl.showPicture" />
+    <button type="submit" ng-disabled="userForm.$pristine">Save</button>
+</form>

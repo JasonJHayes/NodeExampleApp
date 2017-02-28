@@ -1,0 +1,17 @@
+﻿<form name="signinForm" ng-submit="$ctrl.signin()" novalidate class="signin-form">
+    <label>
+        User ID
+        <input type="text" name="userId" ng-model="$ctrl.userId" required placeholder="User ID" />
+        <span ng-show="signinForm.userId.$invalid" class="error">
+            <span ng-show="signinForm.userId.$error.required">required</span>
+        </span>
+    </label>
+    <label>
+        Password
+        <input type="password" name="password" ng-model="$ctrl.password" required placeholder="Password" />
+        <span ng-show="signinForm.password.$invalid" class="error">
+            <span ng-show="signinForm.password.$error.required">required</span>
+        </span>
+    </label>
+    <button type="submit" ng-disabled="signinForm.userId.$invalid || signinForm.password.$invalid">SignIn</button>
+</form>

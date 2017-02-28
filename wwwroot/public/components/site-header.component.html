@@ -1,0 +1,14 @@
+﻿<header>
+    <div class="site-name">
+        Node Example App
+    </div>
+    <nav>
+        <a href="/public/">Home</a>
+        <a href="/public/about">About</a>
+        <a href="/public/signup" ng-hide="$ctrl.loggedIn">SignUp</a>
+        <a href="/public/signin" ng-hide="$ctrl.loggedIn">SignIn</a>
+        <a href="/secure/" ng-show="$ctrl.loggedIn">Secure</a>
+        <a href="/secure/user" ng-show="$ctrl.loggedIn">User</a>
+        <a href="#" ng-show="$ctrl.loggedIn" ng-click="$ctrl.signout()">SignOut</a>
+    </nav>
+</header>

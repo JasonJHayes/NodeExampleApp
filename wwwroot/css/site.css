@@ -1,0 +1,186 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Times New Roman", serif;
+    background: #fff;
+}
+
+/* header */
+
+header {
+    font-family: "Courier New", Arial, sans-serif;
+    border-bottom: 1px solid #000;
+    box-shadow: 0 0 5px #000;
+}
+
+    header nav {
+        display: inline-block;
+        margin: 10px;
+    }
+
+        header nav a {
+            margin: 0 2px;
+        }
+
+    header .site-name {
+        display: inline-block;
+        padding: 10px;
+    }
+
+.public header {
+    background: #dee;
+}
+
+    .public header .site-name {
+        color: #fff;
+        background: #455;
+    }
+
+.secure header {
+    background: #dde;
+}
+
+    .secure header .site-name {
+        color: #fff;
+        background: #445;
+    }
+
+/* main */
+
+.message {
+    padding: 2px;
+    text-align: center;
+    color: #800;
+    background: #fdd;
+    cursor: pointer;
+}
+
+section.main h1 {
+    margin: 0;
+    padding: 10px;
+    font-size: 28px;
+    font-family: "Arial Black", sans-serif;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+}
+
+section.main h2 {
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-variant: small-caps;
+}
+
+/* signup-form */
+
+.signup-form {
+    padding: 10px;
+    background: #dee;
+}
+
+    .signup-form .ng-invalid.ng-touched {
+        background-color: #fdd;
+    }
+
+    .signup-form label {
+        display: block;
+        margin: 10px 0;
+    }
+
+        .signup-form label .error {
+            position: relative;
+            font-size: 12px;
+            font-family: "Courier New", Arial, sans-serif;
+            color: #f22;
+        }
+
+        .signup-form label .ok {
+            position: relative;
+            font-size: 12px;
+            font-family: "Courier New", Arial, sans-serif;
+            color: #2b2;
+        }
+
+    .signup-form button {
+        width: 100px;
+        margin: 10px 0 0 0;
+    }
+
+/* signin-form */
+
+.signin-form {
+    padding: 10px;
+    background: #dde;
+}
+
+    .signin-form .ng-invalid.ng-touched {
+        background-color: #fdd;
+    }
+
+    .signin-form label {
+        display: block;
+        margin: 10px 0;
+    }
+
+        .signin-form label .error {
+            position: relative;
+            font-size: 12px;
+            font-family: "Courier New", Arial, sans-serif;
+            color: #f22;
+        }
+
+    .signin-form button {
+        width: 100px;
+        margin: 10px 0 0 0;
+    }
+
+/* secure home */
+
+.signins {
+    margin: 0 10px;
+}
+
+    .signins label {
+        display: block;
+    }
+
+    .signins table tr:nth-child(odd) {
+        background: #eee;
+    }
+
+    .signins table tr:nth-child(1) {
+        background: #ddd;
+        cursor: pointer;
+    }
+
+    .signins table tr td:nth-child(2) {
+        text-align: center;
+    }
+
+/* user-form */
+
+.user-form {
+    padding: 10px;
+    background: #dde;
+}
+
+    .user-form label {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .user-form img {
+        display: block;
+    }
+
+    .user-form button {
+        width: 100px;
+        margin: 10px 0 0 0;
+    }
