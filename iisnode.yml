@@ -1,0 +1,3 @@
+﻿nodeProcessCommandLine: "D:\home\site\node.exe"
+loggingEnabled: true
+logDirectory: iisnode

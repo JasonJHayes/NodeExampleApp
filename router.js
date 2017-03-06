@@ -23,7 +23,7 @@ var limiterStore = new MongooseStore(mongoose.model("bruteforce", BruteForceSche
 var limiter = new ExpressBrute(limiterStore, {
     freeRetries: server.settings.maxRequestsPerWindow,
     failCallback: function (req, res, next, nextValidRequestDate) {
-        res.status(429).sendFile(path.join(server.wwwroot + "/429.html"));
+        res.status(429).sendFile(path.join(server.webroot + "/429.html"));
     },
     handleStoreError: function (err) {
         console.log(ts(), "ERROR", "request rate limiter store error", err);
@@ -41,7 +41,7 @@ server.app.get("/", function (req, res, next) {
 // covers all paths with secure as the base
 server.secureRouter.use(function (req, res, next) {
     if (!req.session.userToken) {
-        //res.status(401).sendFile(path.join(server.wwwroot + "/401.html"));
+        //res.status(401).sendFile(path.join(server.webroot + "/401.html"));
         res.cookie(COOKIE_MSG, MSG_UNAUTHORIZED);
         res.redirect(SIGNIN_URL);
     } else next();
@@ -59,7 +59,7 @@ server.publicRouter.get("/*", function (req, res, next) {
     // pass the session information in a cookie, which
     // will be deleted immediately in the AngularJS page
     if (req.session.userToken) res.cookie(COOKIE_SESSION, req.session.userToken.userId);
-    var file = path.join(server.wwwroot + PUBLIC_URL + "/public.html");
+    var file = path.join(server.webroot + PUBLIC_URL + "/public.html");
     fs.readFile(file, "utf8", function (err, data) {
         if (err) return next(err);
         // use non-minified scripts in development
@@ -70,7 +70,7 @@ server.secureRouter.get("/*", function (req, res, next) {
     // pass the session information in a cookie, which
     // will be deleted immediately in the AngularJS page
     res.cookie(COOKIE_SESSION, req.session.userToken.userId);
-    var file = path.join(server.wwwroot + SECURE_URL + "/secure.html");
+    var file = path.join(server.webroot + SECURE_URL + "/secure.html");
     fs.readFile(file, "utf8", function (err, data) {
         if (err) return next(err);
         // use non-minified scripts in development
@@ -108,11 +108,11 @@ server.app.use(function (req, res, next) {
         statusUrl: req.get("host") + req.originalUrl
     }, req);
     // don't do redirect on the server because it is bad for API calls
-    res.status(404).sendFile(path.join(server.wwwroot + "/404.html"));
+    res.status(404).sendFile(path.join(server.webroot + "/404.html"));
 });
 server.app.use(function (err, req, res, next) {
     errorHandler.processError(err, req);
-    //res.status(500).sendFile(path.join(server.wwwroot + "/500.html"));
+    //res.status(500).sendFile(path.join(server.webroot + "/500.html"));
     res.cookie(COOKIE_MSG, MSG_UNKNOWN_ERROR);
     res.redirect("/");
 });

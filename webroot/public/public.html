@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="publicApp">
+<head>
+    <title>Node Example App</title>
+    <meta name="description" content="A NodeJS exmaple application using the MEAN stack." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/public/" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/site.css" />
+    <!--AngularJSScripts-->
+    <script src="/javascript/constants.js"></script>
+    <script src="/javascript/errorHandler.js"></script>
+    <script src="/javascript/site.module.js"></script>
+    <script src="/public/components/site-header.component.js"></script>
+    <script src="/public/components/signup-form.component.js"></script>
+    <script src="/public/components/signin-form.component.js"></script>
+    <script src="/public/public.module.js"></script>
+</head>
+<body class="public">
+    <site-header></site-header>
+    <section ng-controller="msgController" ng-bind="message" ng-show="message" ng-click="clearMessage()" class="message"></section>
+    <main ng-view></main>
+</body>
+</html>

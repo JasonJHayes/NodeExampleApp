@@ -16,7 +16,7 @@ var mongoose = require("mongoose"); // http://mongoosejs.com/docs/guide.html
 var bluebird = require("bluebird"); // http://bluebirdjs.com/docs/getting-started.html
 
 // setup NodeJS
-require("./wwwroot/javascript/constants.js");
+require("./webroot/javascript/constants.js");
 global.ts = function () {
     var timestamp = new Date();
     return timestamp.toLocaleDateString() + " " + timestamp.toLocaleTimeString();
@@ -58,7 +58,6 @@ process.on("SIGINT", function () { // triggers on console <Ctrl>-C
 
 // setup server object
 // expose server to all modules (global)
-if (global.server) console.log(ts(), "WARN", "global server overwritten");
 global.server = {};
 
 // setup environment
@@ -70,7 +69,7 @@ if (server.environment === ENV_DEVELOPMENT) {
     server.settings = require("./settings/production.js");
 } else throw "unknown environment";
 // directories and paths
-server.wwwroot = path.join(__dirname + "/wwwroot");
+server.webroot = path.join(__dirname + "/webroot");
 
 // setup MongoClient
 // test connection can be established
@@ -98,7 +97,7 @@ server.app.set("x-powered-by", false);
 if (server.settings.compressResponse) {
     server.app.use(require("compression")()); // https://github.com/expressjs/compression
 }
-server.app.use(express.static(server.wwwroot, {
+server.app.use(express.static(server.webroot, {
     index: false // don't use index.html by default
 }));
 // setup view engine

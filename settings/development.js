@@ -10,7 +10,7 @@ module.exports = {
     cookieMaxAge: 8 * 60 * 60 * 1000, // ms -> 8 hours
     secret: "Node Example App",
     saltLength: 16,
-    dbURI: "mongodb://UserId:password@server:27017/NodeDB",
+    dbURI: "mongodb://NodeJS:Node3xamp!eApp@office-pc:27017/NodeDB",
     email: {
         server: {
             host: "smtp.gmail.com",
@@ -23,7 +23,7 @@ module.exports = {
     error: {
         saveToDb: true,
         sendEmail: false,
-        emailTo: "",
+        emailTo: "error-address@outlook.com",
         emailSubject: "Node Example App: An Error Has Occurred!"
     },
     angularJSScripts:
